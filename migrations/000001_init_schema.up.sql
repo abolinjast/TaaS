@@ -39,7 +39,7 @@ CREATE TABLE courses (
 CREATE TABLE study_sessions (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     user_id UUID REFERENCES users(id) ON DELETE CASCADE,
-    course_id UUID REFERENCES courses(id) ON DELETE SET NULL,
+    course_id UUID REFERENCES courses(id) ON DELETE CASCADE NOT NULL,
     module VARCHAR(255),
     topic VARCHAR(255),
     -- Time Tracking
