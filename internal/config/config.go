@@ -34,9 +34,9 @@ func LoadConfig() (*Config, error) {
 		APIHost:    getEnv("API_HOST", "127.0.0.1"),
 		DBUser:     getEnv(os.Getenv("DB_USER"), "taasadmin"),
 		DBPassword: os.Getenv("DB_PASSWORD"),
-		DBName:     getEnv(os.Getenv("DB_NAME"), "taas"),
-		DBHost:     getEnv(os.Getenv("DB_HOST"), "db"),
-		DBPort:     getEnv(os.Getenv("DB_PORT"), "5432"),
+		DBName:     getEnv("DB_NAME", "taas"),
+		DBHost:     getEnv("DB_HOST", "db"),
+		DBPort:     getEnv("DB_PORT", "5432"),
 	}
 	if cfg.DBPassword == "" {
 		return nil, fmt.Errorf("CRITICAL: DB_PASSWORD environment variable is not set")
